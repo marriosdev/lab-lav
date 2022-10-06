@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text("description"); 
             $table->softDeletes();
             $table->foreignId("user_id")->constrained("users");
+            $table->dropSoftDeletes();
         });
     }
 

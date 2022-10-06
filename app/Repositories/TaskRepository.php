@@ -22,19 +22,25 @@ class TaskRepository implements TaskRepositoryInterface
     }
 
     /**
+     * Get Task by id
      * 
+     * @param int $id
+     * @return Task
      */
     public function findById($id)
     {
-        return $this->entity->findById($id)->get();
+        return $this->entity->where("id", $id)
+        ->with("user")
+        ->first();
     }
 
     /**
-     * 
+     * find all tasks
+     * @return Illuminate\Support\Collection<Task>
      */
     public function findAll()
     {
-        return $this->entity->all()->get();
+        return $this->entity->where("deleted_at", NULL)->with("user")->get();
     }
 
     /**

@@ -17,11 +17,11 @@ class GetTaskController extends Controller
 
     public function findAll()
     {
-        $this->service->execute();
+        return response()->json($this->service->execute(), 200);
     }
 
     public function findById(Request $request)
     {
-        $this->service->execute($request->id);
+        return response()->json($this->service->execute($request->id), 200);
     }
 }
