@@ -7,11 +7,20 @@ use App\Exceptions\{
 };
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Services\Task\DestroyTaskService;
 
 class DestroyTaskController extends Controller
 {
-    public function destroy()
+    protected DestroyTaskService $service;
+
+    public function __construct(DestroyTaskService $destroyTaskService)
     {
-        throw new TaskNotFoundException();
+        $this->service = $destroyTaskService;
+    }
+
+    public function destroy(Request $request)
+    {
+        $this->service->execute($request->id);
+        return response()->json(["ok"], 200);
     }
 }
