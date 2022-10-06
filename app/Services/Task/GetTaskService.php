@@ -10,7 +10,7 @@ class GetTaskService
     protected TaskRepository $repository;
 
     /**
-     * 
+     * @param TaskRepositoru $taskRepository
      */
     public function __construct(TaskRepository $taskRepository)
     {
@@ -18,7 +18,7 @@ class GetTaskService
     }
 
     /**
-     * @param int $id
+     * 
      */
     public function execute(int $id = null)
     {
@@ -28,7 +28,6 @@ class GetTaskService
             throw new TaskNotFoundException();
         }
         return $task;
-
     }
     
     /**

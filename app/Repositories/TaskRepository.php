@@ -14,7 +14,7 @@ class TaskRepository implements TaskRepositoryInterface
     protected  Task $entity;
 
     /**
-     * 
+     * @param App\Models\Task $task
      */
     public function __construct(Task $task)
     {
@@ -44,7 +44,8 @@ class TaskRepository implements TaskRepositoryInterface
     }
 
     /**
-     * 
+     * @param int $id
+     * @return bool
      */
     public function destroy(int $id)
     {
@@ -52,7 +53,9 @@ class TaskRepository implements TaskRepositoryInterface
     }
 
     /**
-     * 
+     * @param int $id
+     * @param array $task
+     * @return bool
      */
     public function update(int $id, array $task)
     {
@@ -60,7 +63,8 @@ class TaskRepository implements TaskRepositoryInterface
     }
 
     /**
-     * 
+     * @param array $task
+     * @return bool
      */
     public function create(array $task)    
     {
