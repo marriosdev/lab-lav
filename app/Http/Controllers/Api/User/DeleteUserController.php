@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Api\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DeleteUserController extends Controller
+class DestroyUserController extends Controller
 {
-    public function delete()
+    public function destroy()
     {
         echo "DELETE USER";
     }
