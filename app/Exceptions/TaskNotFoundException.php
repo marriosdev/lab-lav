@@ -2,7 +2,6 @@
 
 namespace App\Exceptions;
 
-use DateTime;
 use Exception;
 
 class TaskNotFoundException extends Exception

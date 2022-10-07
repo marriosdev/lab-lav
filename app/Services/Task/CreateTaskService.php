@@ -2,19 +2,40 @@
 
 namespace App\Services\Task;
 
-use App\Repositories\Contracts\TaskRepositoryInterface;
+use App\Exceptions\InvalidTaskDataException;
+use App\Repositories\TaskRepository;
+use App\Http\Controllers\Api\Task\Dtos\TaskDto;
+use App\Validators\TaskValidator;
 
 class CreateTaskService
 {
-    protected TaskRepositoryInterface $repository;
+    protected TaskRepository $repository;
 
-    public function __construct(TaskRepositoryInterface $taskRepository)
+    /**
+     * 
+     */
+    public function __construct(TaskRepository $taskRepository)
     {
         $this->repository = $taskRepository;
     }
 
-    public function execute()
+    /**
+     * Create new task
+     */
+    public function execute(TaskDto $taskDto)
     {
+        $validator = TaskValidator::run($taskDto);
+
+        $task = [
+            "title"       => $taskDto->title,
+            "description" => $taskDto->description,
+            "created_at"  => $taskDto->created_at,
+            "user_id"     => $taskDto->user_id
+        ];
         
+        /**
+         * @var Illuminate\Validation\Validator $validator
+         */
+        return $validator->fails() ? throw new InvalidTaskDataException($validator->messages()) : $this->repository->create($task); 
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Task\{
     DestroyTaskController,
     UpdateTaskController,
-    InsertTaskController,
+    CreateTaskController,
     GetTaskController
 };
 
@@ -41,4 +41,4 @@ Route::get("task/{id}",     [GetTaskController::class, "findById"]);
 Route::get("task",          [GetTaskController::class, "findAll"]);
 Route::put("task/{id}",     [UpdateTaskController::class, "update"]);
 Route::delete("task/{id}",  [DestroyTaskController::class, "destroy"]);
-Route::post("task",         [InsertTaskController::class, "insert"]);
+Route::post("task",         [CreateTaskController::class, "create"]);
