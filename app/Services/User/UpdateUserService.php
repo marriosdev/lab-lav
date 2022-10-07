@@ -8,6 +8,7 @@ use App\Exceptions\InvalidUserDataException;
 use App\Exceptions\UserNotFoundException;
 use App\Http\Controllers\Api\User\Dtos\ResponseUserDto;
 use App\Validators\UserValidator;
+use Illuminate\Support\Facades\Hash;
 
 class UpdateUserService
 {
@@ -39,7 +40,7 @@ class UpdateUserService
         }
 
         if(!is_null($userDto->password)) {
-            $userArray["password"] = $userDto->password;
+            $userArray["password"] = Hash::make($userDto->password);
         }
 
         /**

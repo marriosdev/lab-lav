@@ -6,6 +6,7 @@ use App\Exceptions\InvalidUserDataException;
 use App\Repositories\UserRepository;
 use App\Http\Controllers\Api\User\Dtos\UserDto;
 use App\Validators\UserValidator;
+use Illuminate\Support\Facades\Hash;
 
 class CreateUserService
 {
@@ -29,7 +30,7 @@ class CreateUserService
         $user = [
             "name"  => $userDto->name,
             "email" => $userDto->email,
-            "password"  => $userDto->password,
+            "password"  => Hash::make($userDto->password),
         ];
         
         /**
