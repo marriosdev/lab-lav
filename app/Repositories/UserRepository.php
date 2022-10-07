@@ -24,17 +24,17 @@ class UserRepository implements UserRepositoryInterface
     /**
      * 
      */
-    public function getById($id)
+    public function findById($id)
     {
-        return $this->entity->getById($id);
+        return $this->entity->find($id);
     }
 
     /**
      * 
      */
-    public function getAll()
+    public function findAll()
     {
-        return $this->entity->getAll();
+        return $this->entity->all();
     }
 
     /**
@@ -48,9 +48,12 @@ class UserRepository implements UserRepositoryInterface
     /**
      * 
      */
-    public function update(int $id, array $user)
+    public function update(int $id, Array $user)
     {
-        return $this->entity->update($id, $user);
+        if($this->entity->find($id) == NULl) {
+            return false;
+        }
+        return $this->entity->where("id", $id)->update($user);
     }
 
     /**

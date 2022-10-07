@@ -14,7 +14,7 @@ use App\Http\Controllers\Api\User\{
     GetUserController,
     DestroyUserController,
     UpdateUserController, 
-    InsertUserController
+    CreateUserController
 };
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ Route::get("user/{id}",     [GetUserController::class, "findById"]);
 Route::get("user",          [GetUserController::class, "findAll"]);
 Route::patch("user/{id}",   [UpdateUserController::class, "update"]);
 Route::delete("user/{id}",  [DestroyUserController::class, "destroy"]);
-Route::post("user",         [InsertUserController::class, "insert"]);
+Route::post("user",         [CreateUserController::class, "create"]);
 
 Route::get("task/{id}",     [GetTaskController::class, "findById"]);
 Route::get("task",          [GetTaskController::class, "findAll"]);

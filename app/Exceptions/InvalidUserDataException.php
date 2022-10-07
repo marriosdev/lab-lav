@@ -8,14 +8,13 @@ class InvalidUserDataException extends Exception
 {
     public $message;
 
-    public function __construct(Array $message)
+    public function __construct(Mixed $message)
     {
-        $this->message = $message;
+        $this->message = json_encode(["errors"=>$message]);
     }
 
     public function render() {
-        return response()->json([
-            'message' => $this->message,
-        ], 400);    
+        return response($this->message, 400);    
+   
     }
 }

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Api\Task\Dtos;
+use App\Dto\DtoInterface; 
 
-class TaskDto
+class TaskDto implements DtoInterface
 {
     public $title;
     public $description;

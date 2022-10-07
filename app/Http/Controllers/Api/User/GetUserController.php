@@ -3,17 +3,25 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
+use App\Services\User\GetUserService;
 use Illuminate\Http\Request;
 
 class GetUserController extends Controller
 {
-    public function findAll()
+    protected GetUserService $service;
+
+    public function __construct(GetUserService $getUserService)
     {
-        echo "FIND ALL USER";
+        $this->service = $getUserService;
     }
 
-    public function findById()
+    public function findAll()
     {
-        echo "FIND BY ID USER";
+        return response()->json($this->service->execute(), 200);
+    }
+
+    public function findById(Request $request)
+    {
+        return response()->json($this->service->execute($request->id), 200);
     }
 }
