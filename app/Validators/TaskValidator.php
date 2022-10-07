@@ -16,7 +16,7 @@ class TaskValidator extends BaseValidator
     /**
      * @var Array $actions
      */
-    private static Array $actions = ["CREATE", "UPDATE"];
+    protected static Array $actions = ["CREATE", "UPDATE"];
     
     /**
      * @return Illuminate\Validation\Validator $validator
