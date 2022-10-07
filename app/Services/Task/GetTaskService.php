@@ -38,9 +38,7 @@ class GetTaskService
      */
     public function findAll()
     {
-        $tasks = $this->repository->findAll();
-        
-        return $tasks;
+        return $this->repository->findAll();
     }
     
     /**
@@ -49,7 +47,6 @@ class GetTaskService
      */
     public function findById(int $id)
     {
-        $task = $this->repository->findById($id);
-        return new ResponseTaskDto($task);
+        return $this->repository->findById($id);
     }
 }

@@ -19,7 +19,6 @@ class TaskSeeder extends Seeder
         DB::table('tasks')->insert([
             'title' => Str::random(10),
             'description' => Str::random(40),
-            'deleted_at' => date("Y-m-d H:m:s"),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 1,
         ]);
@@ -48,7 +47,6 @@ class TaskSeeder extends Seeder
         DB::table('tasks')->insert([
             'title' => Str::random(10),
             'description' => Str::random(40),
-            'deleted_at' => date("Y-m-d H:m:s"),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 5,
         ]);
@@ -56,7 +54,6 @@ class TaskSeeder extends Seeder
         DB::table('tasks')->insert([
             'title' => Str::random(10),
             'description' => Str::random(40),
-            'deleted_at' => date("Y-m-d H:m:s"),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 1,
         ]);
@@ -64,7 +61,6 @@ class TaskSeeder extends Seeder
         DB::table('tasks')->insert([
             'title' => Str::random(10),
             'description' => Str::random(40),
-            'deleted_at' => date("Y-m-d H:m:s"),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 1,
         ]);
@@ -72,7 +68,6 @@ class TaskSeeder extends Seeder
         DB::table('tasks')->insert([
             'title' => Str::random(10),
             'description' => Str::random(40),
-            'deleted_at' => date("Y-m-d H:m:s"),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 2,
         ]);
@@ -80,7 +75,6 @@ class TaskSeeder extends Seeder
         DB::table('tasks')->insert([
             'title' => Str::random(10),
             'description' => Str::random(40),
-            'deleted_at' => date("Y-m-d H:m:s"),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 2,
         ]);
@@ -123,7 +117,6 @@ class TaskSeeder extends Seeder
         DB::table('tasks')->insert([
             'title' => Str::random(10),
             'description' => Str::random(40),
-            'deleted_at' => date("Y-m-d H:m:s"),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 1,
         ]);

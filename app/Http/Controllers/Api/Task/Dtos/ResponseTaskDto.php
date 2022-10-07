@@ -13,7 +13,7 @@ class ResponseTaskDto implements DtoInterface
     public $user_id;
     public $user_name;
 
-    public function __construct(Object $object)
+    public function __construct($object)
     {
         $this->id = $object->id;
         $this->title = $object->title;
