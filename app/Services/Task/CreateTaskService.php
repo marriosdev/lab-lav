@@ -24,7 +24,7 @@ class CreateTaskService
      */
     public function execute(TaskDto $taskDto)
     {
-        $validator = TaskValidator::run($taskDto);
+        $validator = TaskValidator::run($taskDto, "CREATE");
 
         $task = [
             "title"       => $taskDto->title,

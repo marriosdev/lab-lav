@@ -57,9 +57,13 @@ class TaskRepository implements TaskRepositoryInterface
      * @param array $task
      * @return bool
      */
-    public function update(int $id, array $task)
+    public function update(int $id, Array $task)
     {
-        return $this->entity->update($id, $task);
+        if($this->entity->find($id) == NULl) {
+            return false;
+        }
+        
+        return $this->entity->where("id", $id)->update($task);
     }
 
     /**
