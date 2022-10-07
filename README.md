@@ -1,4 +1,4 @@
 # To-do list em Laravel
-### Repository pattern
-### Service layer
+### Repository Pattern
+### Service Layer
 ### DTO Pattern
