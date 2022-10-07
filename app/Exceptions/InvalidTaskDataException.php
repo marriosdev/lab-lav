@@ -10,7 +10,7 @@ class InvalidTaskDataException extends Exception
 
     public function __construct(Mixed $message)
     {
-        $this->message = json_encode($message);
+        $this->message = json_encode(["errors"=>$message]);
     }
 
     public function render() {

@@ -23,15 +23,15 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            UserRepositoryInterface::class,
-            TaskRepositoryInterface::class
-        );
+        // $this->app->bind(
+        //     UserRepositoryInterface::class,
+        //     TaskRepositoryInterface::class
+        // );
 
-        $this->app->bind(
-            UserRepository::class,
-            TaskRepository::class
-        );
+        // $this->app->bind(
+        //     UserRepository::class,
+        //     TaskRepository::class
+        // );
     }
 
     /**

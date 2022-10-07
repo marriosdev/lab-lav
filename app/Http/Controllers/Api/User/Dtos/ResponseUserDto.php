@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api\Task\Dtos;
+namespace App\Http\Controllers\Api\User\Dtos;
 use App\Dto\DtoInterface; 
 
-class ResponseTaskDto implements DtoInterface
+class ResponseUserDto implements DtoInterface
 {
     public $id;
     public $title;
