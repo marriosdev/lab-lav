@@ -62,7 +62,6 @@ class TaskRepository implements TaskRepositoryInterface
         if($this->entity->find($id) == NULl) {
             return false;
         }
-        
         return $this->entity->where("id", $id)->update($task);
     }
 

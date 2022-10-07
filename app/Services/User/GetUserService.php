@@ -22,12 +22,12 @@ class GetUserService
      */
     public function execute(int $id = null)
     {
-        $task = ($id == null) ? $this->findAll() : $this->findById(($id)); 
+        $user = ($id == null) ? $this->findAll() : $this->findById(($id)); 
 
-        if($task == null) {
+        if($user == null) {
             throw new UserNotFoundException();
         }
-        return $task;
+        return $user;
     }
     
     /**
@@ -37,7 +37,6 @@ class GetUserService
     public function findAll()
     {
         $users = $this->repository->findAll();
-        
         return $users;
     }
     
