@@ -51,7 +51,7 @@ class UpdateUserService
         }
         
         if ($this->repository->update($id, $userArray)) {
-            // return new ResponseUserDto($this->repository->findById($id));
+            return new ResponseUserDto($this->repository->findById($id));
         }else{
             throw new UserNotFoundException();
         }
