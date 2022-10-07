@@ -33,7 +33,7 @@ class UserValidator extends BaseValidator
 
         $validator = Validator::make($userArray, [
             'name'      => 'required|max:255|min:2',
-            'email'     => 'required|email',
+            'email'     => 'required|email|unique:App\Models\User,email',
             'password'  => 'required|min:8'
         ]);
 
@@ -57,7 +57,7 @@ class UserValidator extends BaseValidator
         }
         
         if(!is_null($userDto->email)) {
-            $validators["email"] = "email";
+            $validators["email"] = "email|unique:App\Models\User,email";
             $userArray["email"]  = $userDto->email;
         }
 

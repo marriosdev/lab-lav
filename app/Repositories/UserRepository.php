@@ -63,4 +63,12 @@ class UserRepository implements UserRepositoryInterface
     {
         return $this->entity->create($user);
     }
+
+    /**
+     * 
+    */
+    public function findByEmail(String $email)
+    {
+        return $this->entity->where("email", $email)->first();
+    }
 }
