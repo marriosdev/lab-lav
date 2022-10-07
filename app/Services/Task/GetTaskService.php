@@ -4,6 +4,7 @@ namespace App\Services\Task;
 
 use App\Exceptions\TaskNotFoundException;
 use App\Repositories\TaskRepository;
+use App\Http\Controllers\Api\Task\Dtos\ResponseTaskDto;
 
 class GetTaskService
 {
@@ -27,6 +28,7 @@ class GetTaskService
         if($task == null) {
             throw new TaskNotFoundException();
         }
+
         return $task;
     }
     
@@ -47,6 +49,7 @@ class GetTaskService
      */
     public function findById(int $id)
     {
-        return $this->repository->findById($id);
+        $task = $this->repository->findById($id);
+        return new ResponseTaskDto($task);
     }
 }

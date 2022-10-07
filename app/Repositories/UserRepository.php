@@ -24,9 +24,25 @@ class UserRepository implements UserRepositoryInterface
     /**
      * 
      */
+    public function findByIdWithTasks($id)
+    {
+        return $this->entity->where("id", $id)->with("tasks")->get();
+    }
+
+    /**
+     * 
+     */
+    public function findAllWithTasks()
+    {
+        return $this->entity->select("*")->with("tasks")->get();
+    }
+
+        /**
+     * 
+     */
     public function findById($id)
     {
-        return $this->entity->find($id);
+        return $this->entity->where("id", $id)->first();
     }
 
     /**
@@ -34,9 +50,8 @@ class UserRepository implements UserRepositoryInterface
      */
     public function findAll()
     {
-        return $this->entity->all();
+        return $this->entity->select("*")->get();
     }
-
     /**
      * 
      */
