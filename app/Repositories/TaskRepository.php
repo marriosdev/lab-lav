@@ -30,8 +30,9 @@ class TaskRepository implements TaskRepositoryInterface
     public function findById($id)
     {
         return $this->entity->where("id", $id)
-        ->with("user")
-        ->first();
+            ->with("user")
+            ->with("status")
+            ->first();
     }
 
     /**
@@ -40,7 +41,10 @@ class TaskRepository implements TaskRepositoryInterface
      */
     public function findAll()
     {
-        return $this->entity->where("deleted_at", NULL)->with("user")->get();
+        return $this->entity->where("deleted_at", NULL)
+            ->with("user")
+            ->with("status")
+            ->get();
     }
 
     /**
