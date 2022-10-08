@@ -29,10 +29,11 @@ class CreateTaskService
         $task = [
             "title"       => $taskDto->title,
             "description" => $taskDto->description,
-            "created_at"  => $taskDto->created_at,
-            "user_id"     => $taskDto->user_id
+            "user_id"     => $taskDto->user_id,
+            "status_id"   => 1
         ];
-        
+
+        // dd($task);
         /**
          * @var Illuminate\Validation\Validator $validator
          */
