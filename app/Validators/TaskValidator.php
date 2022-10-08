@@ -23,21 +23,18 @@ class TaskValidator extends BaseValidator
      */
     static function validateDataCreate(TaskDto $taskDto)
     {
-        $messages = [
-            ""
-        ];
+        $messages = [""];
 
         $taskArray = [
             "title"       => $taskDto->title,
             "description" => $taskDto->description,
-            "created_at"  => $taskDto->created_at,
-            "user_id"     => $taskDto->user_id
+            "user_id"     => $taskDto->user_id,
         ];
 
         $validator = Validator::make($taskArray, [
-            'title' => 'required|max:255',
+            'title'       => 'required|max:255',
             'description' => 'required',
-            'user_id' => 'required|numeric'
+            'user_id'     => 'required|numeric|exists:\App\Models\User,id'
         ]);
 
         return $validator;
@@ -54,15 +51,25 @@ class TaskValidator extends BaseValidator
             ""
         ];
 
-        $taskArray = [
-            "title"       => $taskDto->title,
-            "description" => $taskDto->description,
-        ];
+        $validators = [];
+        $taskArray  = [];
 
-        $validator = Validator::make($taskArray, [
-            'title'       => 'required|max:255',
-            'description' => 'required',
-        ]);
+        if(!is_null($taskDto->title)) {
+            $validators["title"] = "max:255|min:1";
+            $taskArray["title"]  = $taskDto->title;
+        }
+        
+        if(!is_null($taskDto->description)) {
+            $validators["description"] = "";
+            $taskArray["description"]  = $taskDto->description;
+        }
+        
+        if(!is_null($taskDto->status)) {
+            $validators["status"] = "numeric|exists:App\Models\TaskStatus,id";
+            $taskArray["status"]  = $taskDto->status;
+        }
+
+        $validator = Validator::make($taskArray, $validators);
 
         return $validator;
     }

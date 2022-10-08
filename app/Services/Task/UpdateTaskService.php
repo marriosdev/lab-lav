@@ -27,22 +27,29 @@ class UpdateTaskService
     public function execute($id = null, TaskDto $taskDto)
     {
         $validator = TaskValidator::run($taskDto, "UPDATE");
+        
+        $taskArray  = [];
 
-        $task = [
-            "title"       => $taskDto->title,
-            "description" => $taskDto->description,
-        ];
+        if(!is_null($taskDto->title)) {
+            $taskArray["title"] = $taskDto->title;
+        }
         
-        
+        if(!is_null($taskDto->description)) {
+            $taskArray["description"] = $taskDto->description;
+        }
+
+        if(!is_null($taskDto->status)) {
+            $taskArray["status_id"] = $taskDto->status;
+        }
+      
         /**
          * @var Illuminate\Validation\Validator $validator
          */
         if($validator->fails()) {
             throw new InvalidTaskDataException($validator->messages());
         }
-
         
-        if ($this->repository->update($id, $task)) {
+        if ($this->repository->update($id, $taskArray)) {
             return new ResponseTaskDto($this->repository->findById($id));
         }else{
             throw new TaskNotFoundException();

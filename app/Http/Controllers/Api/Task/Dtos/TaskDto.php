@@ -15,6 +15,7 @@ class TaskDto implements DtoInterface
         $this->title = $object->title;
         $this->description = $object->description;
         $this->user_id = $object->user_id;
+        $this->status = $object->status;
         $this->created_at = date("Y-m-d H:m:s");
     }
 }

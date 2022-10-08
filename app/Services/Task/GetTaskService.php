@@ -39,7 +39,6 @@ class GetTaskService
             foreach($tasks as $task) {
                 $tasksList[] = new ResponseTaskDto($task);
             }
-
             return $tasksList;
         }
     }
