@@ -12,6 +12,7 @@ class ResponseTaskDto implements DtoInterface
     public $updated_at;
     public $user_id;
     public $user_name;
+    public $status;
 
     public function __construct($object)
     {
@@ -22,5 +23,6 @@ class ResponseTaskDto implements DtoInterface
         $this->created_at = $object->created_at;
         $this->updated_at = $object->updated_at;
         $this->user_name = $object->user->name;
+        $this->status = $object->status->title;
     }
 }

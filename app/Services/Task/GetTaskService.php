@@ -23,13 +23,25 @@ class GetTaskService
      */
     public function execute(int $id = null)
     {
-        $task = ($id == null) ? $this->findAll() : $this->findById(($id)); 
+        $tasks = ($id == null) ? $this->findAll() : $this->findById(($id)); 
 
-        if($task == null) {
+        if($tasks == null) {
             throw new TaskNotFoundException();
         }
 
-        return $task;
+        if($tasks::class ==  \App\Models\Task::class) {
+            return new ResponseTaskDto($tasks);
+        }
+        
+        if($tasks::class == \Illuminate\Database\Eloquent\Collection::class) {
+            $tasksList = [];
+
+            foreach($tasks as $task) {
+                $tasksList[] = new ResponseTaskDto($task);
+            }
+
+            return $tasksList;
+        }
     }
     
     /**

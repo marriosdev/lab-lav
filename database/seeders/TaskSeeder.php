@@ -21,6 +21,7 @@ class TaskSeeder extends Seeder
             'description' => Str::random(40),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 1,
+            'status_id'=>1
         ]);
 
         DB::table('tasks')->insert([
@@ -28,6 +29,7 @@ class TaskSeeder extends Seeder
             'description' => Str::random(40),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 2,
+            'status_id'=>1
         ]);
 
         DB::table('tasks')->insert([
@@ -35,6 +37,7 @@ class TaskSeeder extends Seeder
             'description' => Str::random(40),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 3,
+            'status_id'=>1
         ]);
 
         DB::table('tasks')->insert([
@@ -42,6 +45,7 @@ class TaskSeeder extends Seeder
             'description' => Str::random(40),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 4,
+            'status_id'=>1
         ]);
 
         DB::table('tasks')->insert([
@@ -49,6 +53,7 @@ class TaskSeeder extends Seeder
             'description' => Str::random(40),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 5,
+            'status_id'=>1
         ]);
 
         DB::table('tasks')->insert([
@@ -56,69 +61,7 @@ class TaskSeeder extends Seeder
             'description' => Str::random(40),
             'created_at' => date("Y-m-d H:m:s"),
             'user_id' => 1,
-        ]);
-
-        DB::table('tasks')->insert([
-            'title' => Str::random(10),
-            'description' => Str::random(40),
-            'created_at' => date("Y-m-d H:m:s"),
-            'user_id' => 1,
-        ]);
-
-        DB::table('tasks')->insert([
-            'title' => Str::random(10),
-            'description' => Str::random(40),
-            'created_at' => date("Y-m-d H:m:s"),
-            'user_id' => 2,
-        ]);
-
-        DB::table('tasks')->insert([
-            'title' => Str::random(10),
-            'description' => Str::random(40),
-            'created_at' => date("Y-m-d H:m:s"),
-            'user_id' => 2,
-        ]);
-
-        DB::table('tasks')->insert([
-            'title' => Str::random(10),
-            'description' => Str::random(40),
-            'created_at' => date("Y-m-d H:m:s"),
-            'user_id' => 6,
-        ]);
-
-        DB::table('tasks')->insert([
-            'title' => Str::random(10),
-            'description' => Str::random(40),
-            'created_at' => date("Y-m-d H:m:s"),
-            'user_id' => 3,
-        ]);
-
-        DB::table('tasks')->insert([
-            'title' => Str::random(10),
-            'description' => Str::random(40),
-            'created_at' => date("Y-m-d H:m:s"),
-            'user_id' => 3,
-        ]);
-
-        DB::table('tasks')->insert([
-            'title' => Str::random(10),
-            'description' => Str::random(40),
-            'created_at' => date("Y-m-d H:m:s"),
-            'user_id' => 2,
-        ]);
-
-        DB::table('tasks')->insert([
-            'title' => Str::random(10),
-            'description' => Str::random(40),
-            'created_at' => date("Y-m-d H:m:s"),
-            'user_id' => 2,
-        ]);
-
-        DB::table('tasks')->insert([
-            'title' => Str::random(10),
-            'description' => Str::random(40),
-            'created_at' => date("Y-m-d H:m:s"),
-            'user_id' => 1,
+            'status_id'=>1
         ]);
     }
 }
