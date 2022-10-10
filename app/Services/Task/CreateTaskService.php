@@ -33,7 +33,6 @@ class CreateTaskService
             "status_id"   => 1
         ];
 
-        // dd($task);
         /**
          * @var Illuminate\Validation\Validator $validator
          */
