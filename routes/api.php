@@ -16,6 +16,8 @@ use App\Http\Controllers\Api\User\{
     UpdateUserController, 
     CreateUserController
 };
+use App\Http\Controllers\Auth\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -42,3 +44,7 @@ Route::get("task",          [GetTaskController::class, "findAll"]);
 Route::patch("task/{id}",   [UpdateTaskController::class, "update"]);
 Route::delete("task/{id}",  [DestroyTaskController::class, "destroy"]);
 Route::post("task",         [CreateTaskController::class, "create"]);
+
+Route::get("auth/resetTokens",  [AuthController::class, "resetToken"]);
+Route::get("auth/token",        [AuthController::class, "getToken"]);
+Route::get("auth", [function(){echo "sexo";}])->middleware("auth:api");
