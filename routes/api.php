@@ -39,10 +39,10 @@ Route::group([
 Route::group([
     'middleware' => 'auth.jwt',
 ], function ($router) {
-    Route::get("user/{id}",         [GetUserController::class, "findById"]);
-    Route::get("user",              [GetUserController::class, "findAll"]);
-    Route::patch("user/{id}",       [UpdateUserController::class, "update"]);
-    Route::delete("user/{id}",      [DestroyUserController::class, "destroy"]);
+    // Route::get("user/{id}",         [GetUserController::class, "findById"]);
+    // Route::get("user",              [GetUserController::class, "findAll"]);
+    // Route::patch("user/{id}",       [UpdateUserController::class, "update"]);
+    // Route::delete("user/{id}",      [DestroyUserController::class, "destroy"]);
    
     Route::get("task/{id}",         [GetTaskController::class, "findById"]);
     Route::get("task",              [GetTaskController::class, "findAll"]);
