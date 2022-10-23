@@ -16,10 +16,11 @@ class DestroyTaskService
 
     public function execute($id)
     {
-        $task = $this->repository->findByid($id);
+        $userId = auth("api")->user()->id;
+        $task = $this->repository->findByIdTaskUser($id, $userId);
         if($task == NULL) {
             throw new TaskNotFoundException();
         }
-        $this->repository->destroy($task->id);
+        $this->repository->destroy($task->id, $userId);
     }
 }

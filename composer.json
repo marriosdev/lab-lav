@@ -10,7 +10,8 @@
         "laravel/framework": "^9.19",
         "laravel/passport": "^11.2",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "php-open-source-saver/jwt-auth": "^2.0"
     },
     "require-dev": {
         "brianium/paratest": "^6.6",

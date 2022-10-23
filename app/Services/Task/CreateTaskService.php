@@ -29,12 +29,12 @@ class CreateTaskService
         $task = [
             "title"       => $taskDto->title,
             "description" => $taskDto->description,
-            "user_id"     => $taskDto->user_id,
+            "user_id"     => auth("api")->user()->id,
             "status_id"   => 1
         ];
 
         /**
-         * @var Illuminate\Validation\Validator $validator
+         * @var \Illuminate\Validation\Validator $validator
          */
         return $validator->fails() ? throw new InvalidTaskDataException($validator->messages()) : $this->repository->create($task); 
     }
