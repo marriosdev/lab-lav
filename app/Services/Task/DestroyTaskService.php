@@ -18,7 +18,7 @@ class DestroyTaskService
     {
         $task = $this->repository->findByid($id);
         if($task == NULL) {
-            throw new TaskNotFoundException();
+            throw new TaskNotFoundException(); 
         }
         $this->repository->destroy($task->id);
     }

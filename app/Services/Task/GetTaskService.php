@@ -11,7 +11,7 @@ class GetTaskService
     protected TaskRepository $repository;
 
     /**
-     * @param TaskRepositoru $taskRepository
+     * @param TaskRepository $taskRepository
      */
     public function __construct(TaskRepository $taskRepository)
     {

@@ -2,18 +2,10 @@
 
 namespace Tests\Feature\Task;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class CreateTaskTest extends TestCase
 {
-    
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
     public function test_should_return_code_400_when_user_id_is_invalid()
     {
         $invalidUserId = 1000;
