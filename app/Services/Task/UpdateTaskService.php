@@ -43,13 +43,13 @@ class UpdateTaskService
         }
       
         /**
-         * @var Illuminate\Validation\Validator $validator
+         * @var \Illuminate\Validation\Validator $validator
          */
         if($validator->fails()) {
             throw new InvalidTaskDataException($validator->messages());
         }
         
-        if ($this->repository->update($id, $taskArray)) {
+        if ($this->repository->update($id, $taskArray, auth("api")->user()->id)) {
             return new ResponseTaskDto($this->repository->findById($id));
         }else{
             throw new TaskNotFoundException();

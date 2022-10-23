@@ -28,13 +28,11 @@ class TaskValidator extends BaseValidator
         $taskArray = [
             "title"       => $taskDto->title,
             "description" => $taskDto->description,
-            "user_id"     => $taskDto->user_id,
         ];
 
         $validator = Validator::make($taskArray, [
             'title'       => 'required|max:255',
             'description' => 'required',
-            'user_id'     => 'required|numeric|exists:\App\Models\User,id'
         ]);
 
         return $validator;
