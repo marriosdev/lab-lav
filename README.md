@@ -1,6 +1,7 @@
 # To-do list em Laravel
-### Repository Pattern
+### Repository Layer
 ### Service Layer
-### DTO Pattern
+### DTO
+### Autenticação com JWT
 
 Use o arquivo de coleção do Insomnia, que está no projeto, para testar as rotas
